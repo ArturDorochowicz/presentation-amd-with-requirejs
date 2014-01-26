@@ -1,4 +1,2 @@
-presentation-amd-with-requirejs
+AMD with RequireJS
 ===============================
-
-AMD with RequireJS presentation
