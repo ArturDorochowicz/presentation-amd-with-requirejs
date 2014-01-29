@@ -83,6 +83,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\lib\requirejs\domReady.js" />
+    <Content Include="Scripts\lib\requirejs\i18n.js" />
+    <Content Include="Scripts\lib\requirejs\require.js" />
+    <Content Include="Scripts\lib\requirejs\text.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
