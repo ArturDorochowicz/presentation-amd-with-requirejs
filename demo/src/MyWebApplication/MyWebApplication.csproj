@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\app\main.js" />
+    <Content Include="Public\lib\jquery\jquery-2.1.0.js" />
     <Content Include="Public\lib\requirejs\domReady.js" />
     <Content Include="Public\lib\requirejs\i18n.js" />
     <Content Include="Public\lib\requirejs\require.js" />

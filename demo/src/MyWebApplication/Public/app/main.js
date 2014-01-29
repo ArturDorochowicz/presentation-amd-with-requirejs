@@ -1,14 +1,15 @@
 ﻿require.config({
     paths: {
-        'domReady': 'lib/requirejs/domReady'
+        'domReady': 'lib/requirejs/domReady',
+        'jquery': 'lib/jquery/jquery-2.1.0'
     }
 });
 
-require(['domReady'], function (domReady) {
+require(['domReady', 'jquery'], function (domReady, $) {
     'use strict';
 
     domReady(function () {
-        document.body.innerHTML += '<p>Hello World!</p>';
+        $('<p></p>').text('Hello World!').appendTo(document.body);
     });
 });
 
