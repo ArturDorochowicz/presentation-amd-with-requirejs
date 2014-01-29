@@ -54,6 +54,198 @@
             <h2>&nbsp;</h2>
         </section>
 
+        <section>
+            <section>
+                <h2>Module definition</h2>
+                <pre><code data-trim contenteditable>
+// presentation.js
+define(function () {
+    return {
+        title: 'My presentation',
+        description: '...'
+    };
+});
+                </code></pre>
+
+                <aside class="notes">
+                    Anonymous module. Modules are identified by a module id.
+                    Anonymous modules get the id based on the location of the files they are in.
+
+                    One-to-one mapping between modules and files. One module per file.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Module definition</h2>
+                <pre><code data-trim contenteditable>
+// presentation.js
+define({
+    title: 'My presentation',
+    description: '...'
+});
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Module definition</h2>
+                <pre><code data-trim contenteditable>
+// presentation.js
+define([], function () {
+    return {
+        title: 'My presentation',
+        description: '...'
+    };
+});
+                </code></pre>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Definition function with dependencies</h2>
+                <pre><code data-trim contenteditable>
+// main.js
+define(['jquery', 'presentation'], function ($, presentation) {
+    $(document).ready(function () {
+        $(document.body).text(presentation.title);
+    });
+});
+                </code></pre>
+
+                <aside class="notes">
+                    Dependencies will be evaluated before the module.
+
+                    There is no ordering between dependencies (unless there are dependencies between them, direct or indirect).
+
+                    No globals (except for environment globals: window, document etc.)!
+                </aside>
+            </section>
+
+            <section>
+                <h2>Definition function with dependencies</h2>
+                <pre><code data-trim contenteditable>
+// main.js
+define(function (require) {
+    var $ = require('jquery');
+    var presentation = require('presentation');
+
+    $(document).ready(function () {
+        $(document.body).text(presentation.title);
+    });
+});
+                </code></pre>
+
+                <aside class="notes">
+                    Simplified CommonJS wrapper.
+                    Additionally improves readability and maintainability when there are many dependencies.
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <h2>Named modules</h2>
+            <pre><code data-trim contenteditable>
+// in jQuery since 1.7
+define("jquery", [], function() {
+    // ...
+});
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Running it</h2>
+            <pre><code data-trim contenteditable>
+// main.js
+require(
+    ['jquery', 'knockout', 'PageViewModel'],
+    function ($, ko, PageViewModel) {
+        var vm = new PageViewModel();
+        $(function () {
+            ko.applyBindings(vm);
+        });
+    });
+            </code></pre>
+            <pre><code data-trim contenteditable>
+&lt;html>
+&lt;head>&lt;!-- ... -->&lt;/head>
+&lt;body>
+    &lt;!-- ... -->
+    &lt;script src="require.js" data-main="main">&lt;/script>
+&lt;/body>
+&lt;/html>
+            </code></pre>
+
+            <aside class="notes">
+                Technically, data-main causes a require() call, so main.js could contain a define() call.
+                Doing require() there is a bit of a convention, also allows to alternatively simply include main.js with script tag.
+            </aside>
+        </section>
+
+        <section>
+            <h2>Configuration</h2>
+            <pre><code data-trim contenteditable>
+// Scripts/app/main.js
+require.config({
+    baseUrl: '/Scripts',
+    paths: {
+        'jquery': 'lib/jquery-x.x.x'
+    },
+    waitSeconds: 60
+    urlArgs: 'bust=' + (new Date()).getTime(),
+});
+require(['jquery', 'app/presentation'], function () { /* ... */ });
+            </code></pre>
+            <pre><code data-trim contenteditable>
+// Scripts/app/presentation.js
+define( /* ... */ );
+            </code></pre>
+
+            <aside class="notes">
+                Default waitSeconds = 7.
+            </aside>
+        </section>
+
+        <section>
+            <h2>Configuration</h2>
+            <pre><code data-trim contenteditable>
+&lt;html>
+&lt;!-- ... -->
+    &lt;script>
+    var require = {
+        baseUrl: '@Html.Raw(Ajax.JavaScriptStringEncode(
+            Url.Content("~/Scripts")))',
+        waitSeconds: @(Context.IsDebuggingEnabled ? "3" : "120")
+    };
+    &lt;/script>
+    &lt;script src="require.js" data-main="main">&lt;/script>
+&lt;!-- ... -->
+&lt;/html>
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Module configuration</h2>
+            <pre><code data-trim contenteditable>
+require.config({
+    config: {
+        'app/presentation': {
+            author: 'The Author'
+        }
+    }
+});
+            </code></pre>
+            <pre><code data-trim contenteditable>
+// app/presentation.js
+define(['module'], function (module) {
+    var moduleConfig = module.config();
+    var author = moduleConfig.author;
+});
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Shim configuration</h2>
+        </section>
 
         <section>
             <h1>AMD with RequireJS</h1>
