@@ -23,7 +23,12 @@
         waitSeconds = Context.IsDebuggingEnabled ? 3 : 120,
         urlArgs = Context.IsDebuggingEnabled
             ? "bust=" + DateTime.UtcNow.Ticks
-            : "v=" + "app version here"
+            : "v=" + "app version here",
+        config = new {
+            i18n = new {
+                locale = Request.QueryString["locale"] ?? ""
+            }
+        }
     };
 
     var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
