@@ -83,7 +83,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Public\app\pages\legacy.js" />
+    <Content Include="Public\app\pages\legacy-dependency.js" />
     <Content Include="Public\app\main.js" />
+    <Content Include="Public\app\pages\nls\pl\resources.js" />
+    <Content Include="Public\app\pages\nls\resources.js" />
+    <Content Include="Public\app\pages\non-amd-scripts.js" />
+    <Content Include="Public\app\pages\relative-path-dependency.js" />
+    <Content Include="Public\app\pages\relative-path.js" />
+    <Content Include="Public\app\pages\text-plugin.js" />
+    <Content Include="Public\app\pages\text-plugin.html" />
+    <Content Include="Public\app\pages\i18n-plugin.js" />
     <Content Include="Public\lib\jquery\jquery-2.1.0.js" />
     <Content Include="Public\lib\requirejs\domReady.js" />
     <Content Include="Public\lib\requirejs\i18n.js" />

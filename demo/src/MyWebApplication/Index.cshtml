@@ -5,6 +5,16 @@
     <title>AMD with RequireJS</title>
 </head>
 <body>
+    <p>
+        <a href="?">Home</a>
+    </p>
+    <ol>
+        <li><a href="?page=app/pages/relative-path">Relative module path</a></li>
+        <li><a href="?page=app/pages/text-plugin">text plugin</a></li>
+        <li><a href="?page=app/pages/i18n-plugin">i18n plugin</a></li>
+        <li><a href="?page=app/pages/i18n-plugin&amp;locale=pl">i18n plugin - PL</a></li>
+        <li><a href="?page=app/pages/non-amd-scripts">Non-AMD scripts</a></li>
+    </ol>
 
 @{
     var config = new {
@@ -23,3 +33,4 @@
     <script src="~/Public/lib/requirejs/require.js" data-main="app/main"></script>
 </body>
 </html>
+
