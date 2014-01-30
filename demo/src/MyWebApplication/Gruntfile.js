@@ -1,11 +1,14 @@
+var path = require('path');
+
 module.exports = function (grunt) {
+    var dir = path.join(grunt.option('dir') || '', 'Public/build/');
 
     grunt.initConfig({
         requirejs: {
             all: {
                 options: {
                     appDir: 'Public/',
-                    dir: 'Public/build/',
+                    dir: dir,
                     baseUrl: './',
                     mainConfigFile: 'Public/app/main.js',
                     optimizeCss: 'none',

@@ -83,6 +83,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="MyWebApplication.wpp.targets">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Gruntfile.js" />
     <Content Include="Public\app\pages\dom-ready.js" />
     <Content Include="Public\app\pages\legacy.js" />
@@ -111,6 +114,8 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Index.cshtml" />
+    <None Include="Properties\PublishProfiles\Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Package.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
