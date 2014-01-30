@@ -147,7 +147,7 @@ define(function (require) {
             <pre><code data-trim contenteditable>
 // in jQuery since 1.7
 define("jquery", [], function() {
-    // ...
+    /* ... */
 });
             </code></pre>
         </section>
@@ -167,7 +167,7 @@ require(
             </code></pre>
             <pre><code data-trim contenteditable>
 &lt;html>
-&lt;head>&lt;!-- ... -->&lt;/head>
+&lt;head> &lt;!-- ... --> &lt;/head>
 &lt;body>
     &lt;!-- ... -->
     &lt;script src="require.js" data-main="main">&lt;/script>
@@ -184,14 +184,23 @@ require(
         <section>
             <h2>Configuration</h2>
             <pre><code data-trim contenteditable>
+&lt;html> &lt;!-- ... -->
+    &lt;script>
+    var require = {
+        baseUrl: '/Scripts',
+        waitSeconds: 60,
+        urlArgs: 'cache_bust=' + (new Date()).getTime()
+    };
+    &lt;/script>
+    &lt;script src="require.js" data-main="main">&lt;/script>
+&lt;!-- ... --> &lt;/html>
+            </code></pre>
+            <pre><code data-trim contenteditable>
 // Scripts/app/main.js
 require.config({
-    baseUrl: '/Scripts',
     paths: {
         'jquery': 'lib/jquery-x.x.x'
-    },
-    waitSeconds: 60
-    urlArgs: 'bust=' + (new Date()).getTime(),
+    }
 });
 require(['jquery', 'app/presentation'], function () { /* ... */ });
             </code></pre>
@@ -203,24 +212,6 @@ define( /* ... */ );
             <aside class="notes">
                 Default waitSeconds = 7.
             </aside>
-        </section>
-
-        <section>
-            <h2>Configuration</h2>
-            <pre><code data-trim contenteditable>
-&lt;html>
-&lt;!-- ... -->
-    &lt;script>
-    var require = {
-        baseUrl: '@Html.Raw(Ajax.JavaScriptStringEncode(
-            Url.Content("~/Scripts")))',
-        waitSeconds: @(Context.IsDebuggingEnabled ? "3" : "120")
-    };
-    &lt;/script>
-    &lt;script src="require.js" data-main="main">&lt;/script>
-&lt;!-- ... -->
-&lt;/html>
-            </code></pre>
         </section>
 
         <section>
