@@ -18,10 +18,11 @@
     </ol>
 
 @{
+    var dev = Context.IsDebuggingEnabled;
     var config = new {
-        baseUrl = Href("~/Public"),
-        waitSeconds = Context.IsDebuggingEnabled ? 3 : 120,
-        urlArgs = Context.IsDebuggingEnabled
+        baseUrl = Href(dev ? "~/Public/" : "~/Public/build/"),
+        waitSeconds = dev ? 3 : 120,
+        urlArgs = dev
             ? "bust=" + DateTime.UtcNow.Ticks
             : "v=" + "app version here",
         config = new {

@@ -83,6 +83,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Gruntfile.js" />
     <Content Include="Public\app\pages\dom-ready.js" />
     <Content Include="Public\app\pages\legacy.js" />
     <Content Include="Public\app\pages\legacy-dependency.js" />
