@@ -235,7 +235,27 @@ define(['module'], function (module) {
         </section>
 
         <section>
-            <h2>Shim configuration</h2>
+            <h2>Non AMD scripts</h2>
+            <pre><code data-trim contenteditable>
+require.config({
+    paths: {
+        'underscore': 'lib/underscore-x.x.x',
+        'backbone': 'lib/backbone-x.x.x'
+    },
+    shim: {
+        'backbone': {
+            deps: ['underscore', 'jquery'],
+            exports: 'Backbone'
+        },
+        'underscore': {
+            exports: '_'
+        }
+    }
+});
+            </code></pre>
+            <pre><code data-trim contenteditable>
+define(['underscore'], function (_) { /* ... */ });
+            </code></pre>
         </section>
 
         <section>
