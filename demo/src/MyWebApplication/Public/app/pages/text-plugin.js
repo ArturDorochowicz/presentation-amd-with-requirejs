@@ -2,7 +2,7 @@
     'use strict';
 
     $(function () {
-        $(document.body).append($.parseHTML(templateHtml));
+        $(document.body).append(templateHtml);
     });
 
 });
