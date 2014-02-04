@@ -3,4 +3,3 @@
 
     return "Hello from relative-path-dependency";
 });
-

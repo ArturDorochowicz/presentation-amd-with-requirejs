@@ -1,9 +1,9 @@
 ﻿require.config({
     paths: {
-        'domReady':   'lib/requirejs/domReady',
-        'i18n':       'lib/requirejs/i18n',
-        'text':       'lib/requirejs/text',
-        'jquery':     'lib/jquery/jquery-2.1.0',
+        'domReady': 'lib/requirejs/domReady',
+        'i18n':     'lib/requirejs/i18n',
+        'text':     'lib/requirejs/text',
+        'jquery':   'lib/jquery/jquery-2.1.0',
     },
     shim: {
         'app/pages/legacy-dependency': {
@@ -23,7 +23,5 @@ require([], function () {
     var match = window.location.search.match(/page=([\w-/]+)/);
     var page = match && match[1];
 
-    require([page], function () {
-
-    });
+    require([page]);
 });

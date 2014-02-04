@@ -3,6 +3,6 @@
 
     window.legacyDep = function () {
         return 'Hello from legacyDep ' + $.now();
-    }
+    };
 
 }(window, jQuery));

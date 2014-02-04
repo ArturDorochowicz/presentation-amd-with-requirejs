@@ -4,7 +4,7 @@
     $(function () {
         $.each(legacy(), function () {
             $('<h3></h3>').text(this).appendTo(document.body);
-        })
+        });
     });
 
 });
