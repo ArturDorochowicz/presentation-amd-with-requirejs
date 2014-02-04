@@ -9,7 +9,7 @@
 
   <Target Name="RequireJSOptimize">
     <PropertyGroup>
-      <_Command>"$(MSBuildThisFileDirectory)..\..\node_modules\.bin\grunt" requirejs --no-color --dir=$(WPPAllFilesInSingleFolder)</_Command>
+      <_Command>"$(MSBuildThisFileDirectory)..\..\node_modules\.bin\grunt" requirejs --no-color "--appDir=$(WPPAllFilesInSingleFolder)"</_Command>
     </PropertyGroup>
 
     <Exec Command="$(_Command)" />

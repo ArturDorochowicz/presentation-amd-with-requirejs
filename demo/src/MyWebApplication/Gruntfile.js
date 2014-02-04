@@ -1,18 +1,19 @@
 var path = require('path');
 
 module.exports = function (grunt) {
-    var dir = path.join(grunt.option('dir') || '', 'Public/build/');
+    var appDir = path.join(grunt.option('appDir') || './', 'Public/');
 
     grunt.initConfig({
         requirejs: {
             all: {
                 options: {
-                    appDir: 'Public/',
-                    dir: dir,
+                    appDir: appDir,
                     baseUrl: './',
-                    mainConfigFile: 'Public/app/main.js',
+                    dir: path.join(appDir, 'build/'),
+                    mainConfigFile: path.join(appDir, 'app/main.js'),
                     optimizeCss: 'none',
-                    //locale: 'pl', // can include one i18n locale, root resources are always included
+                    // can include one i18n locale, root resources are always included
+                    //locale: 'pl',
                     modules: [{
                         name: 'app/main',
                         include: [
